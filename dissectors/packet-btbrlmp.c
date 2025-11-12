@@ -23,6 +23,7 @@
 
 #include "config.h"
 
+#include <epan/tfs.h>
 #include <epan/packet.h>
 #include <epan/prefs.h>
 
@@ -3731,7 +3732,7 @@ void dissect_ping_res(proto_tree *tree, tvbuff_t *tvb, int offset, int len)
 
 /* Link Manager Protocol */
 static int
-dissect_btbrlmp(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
+dissect_btbrlmp(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree, void *data _U_)
 {
 	proto_item *lmp_item;
 	proto_tree *lmp_tree;
@@ -3775,11 +3776,11 @@ dissect_btbrlmp(tvbuff_t *tvb, packet_info *pinfo, proto_tree *tree)
 
 		eop = tvb_get_guint8(tvb, offset + 1);
 
-		col_append_str(pinfo->cinfo, COL_INFO, val_to_str(eop, ext_opcode, "Unknown Extended Opcode (%d)"));
+		col_append_str(pinfo->cinfo, COL_INFO, val_to_str_const(eop, ext_opcode, "Unknown Extended Opcode (%d)"));
 	}
 	else
 	{
-		col_append_str(pinfo->cinfo, COL_INFO, val_to_str(op, opcode, "Unknown Opcode (%d)"));
+		col_append_str(pinfo->cinfo, COL_INFO, val_to_str_const(op, opcode, "Unknown Opcode (%d)"));
 	}
 
 	/* see if we are being asked for details */
