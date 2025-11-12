@@ -1,34 +1,28 @@
 
-firmware/.pio/
 
+firmware/.pio/
 *__pycache__*
 
+CMakeFiles/
+build/
 dissectors/build/
 
-CMakeFiles/
-
-host_stack/blue-kitchen/test/
-
-host_stack/blue-kitchen/doc/
-
-logs/capture_bluetooth.pcapng
-
 runtime/install/
-
-hci_dump.pklg
-
-build/
-
 runtime/licenses/
-
 runtime/PYTHON.json
-
 runtime/success
 
 firmware/.cache/
-
 firmware/packages/
-
 firmware/platforms/
-
 firmware/appstate.json
+firmware/esp32_firmware_patching_framework/
+
+host_stack/blue-kitchen/test/
+host_stack/blue-kitchen/doc/
+
+logs/capture_bluetooth.pcapng
+hci_dump.pklg
+
+tags
+
